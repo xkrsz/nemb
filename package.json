@@ -1,21 +1,26 @@
 {
-  "name": "si-server",
+  "name": "node-template",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "gulp"
   },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.com:s-cuer/si-server"
+    "url": "git@github.com:krszwsk/node-template"
   },
-  "author": "Scuer <hello@scuer.co>",
+  "author": "Krzysztof Kraszewski <krszwsk@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "bunyan": "^1.8.4",
     "express": "^4.14.0",
-    "request": "^2.78.0"
+    "mongoose": "^4.6.7"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1"
   }
 }
