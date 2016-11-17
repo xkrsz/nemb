@@ -3,10 +3,8 @@
   let Example = require('./example')
   Example = new Example()
 
-  router.route('/')
-  .get((req, res) => {
-    return res.status(200).json(Example.status())
-  })
+  router.route('/status')
+  .get(Example.status)
 
   module.exports = router
 })()
