@@ -1,6 +1,8 @@
 class Example {
   status (req, res) {
-    return res.status(200).send('OK')
+    res.status(200)
+    res.send('OK')
+    return true
   }
 }
 

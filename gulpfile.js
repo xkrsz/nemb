@@ -4,6 +4,7 @@ const gulp = require('gulp')
 const nodemon = require('gulp-nodemon')
 const childProcess = require('child_process')
 const path = require('path')
+const mocha = require('gulp-mocha')
 
 gulp.task('default', () => {
   nodemon({
@@ -24,4 +25,11 @@ gulp.task('default', () => {
     this.stdout.pipe(bunyan.stdin)
     this.stderr.pipe(bunyan.stdin)
   })
+})
+
+gulp.task('test', function () {
+  gulp.src('tests/*.js')
+  .pipe(mocha({
+    reporter: 'nyan'
+  }))
 })
