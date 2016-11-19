@@ -1,11 +1,14 @@
 'use strict'
 
-const express = require('express')
+import express from 'express'
+import bunyan from 'bunyan'
+import http from 'http'
+import bodyParser from 'body-parser'
+import mongoose from 'mongoose'
+
 const app = express()
-const http = require('http').Server(app)
-const bodyParser = require('body-parser')
-const mongoose = require('mongoose')
-const log = require('bunyan').createLogger({
+const server = http.Server(app)
+const log = bunyan.createLogger({
   name: 'example',
   src: true,
   streams: [
@@ -15,11 +18,11 @@ const log = require('bunyan').createLogger({
     },
     {
       level: 'warn',
-      path: './warn.log'
+      path: '../warn.log'
     },
     {
       level: 'trace',
-      path: './trace.log'
+      path: '../trace.log'
     }
   ]
 })
@@ -45,9 +48,9 @@ db.once('open', () => {
 global.ExampleM = require('./models/example')
 
 // Routes
-app.use('/', require('./components/example/example.routes.js'))
+app.use('/', require('./components/example/example.routes.js').default)
 
-http.listen(port, () => {
+server.listen(port, () => {
   log.info(`App running on localhost:${port}`)
   console.log('ok')
 })

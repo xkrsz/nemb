@@ -1,5 +1,5 @@
-const should = require('should')
-const sinon = require('sinon')
+import should from 'should'
+import sinon from 'sinon'
 
 describe('Example component tests: ', function () {
     describe('Status', function () {
@@ -9,7 +9,7 @@ describe('Example component tests: ', function () {
                 send: sinon.spy()
             }
             
-            let Example = require('../components/example/example.js')
+            let Example = require('./example/example.js')
             Example = new Example()
             
             Example.status(null, res)
