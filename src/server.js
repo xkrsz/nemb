@@ -53,3 +53,5 @@ app.use('/', require('./components/example/example.routes.js').default)
 server.listen(port, () => {
   log.info(`App running on localhost:${port}`)
 })
+
+export {log}
