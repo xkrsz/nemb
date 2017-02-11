@@ -1,11 +1,7 @@
 'use strict'
 
-class Example {
-  status (req, res) {
-    res.status(200)
-    res.send('OK')
-    return true
+module.exports =  {
+  status: (req, res) => {
+    return res.status(200).send('ok')
   }
 }
-
-module.exports = Example

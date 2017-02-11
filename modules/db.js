@@ -13,5 +13,7 @@ db.once('open', () => {
   return log.info('Database connected')
 })
 
+mongoose.Promise = global.Promise
+
 // Models
 global.MExample = require('../models/example')
