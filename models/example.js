@@ -9,4 +9,4 @@ const Example = new Schema({
   timestamp: Number
 })
 
-export default mongoose.model('example', Example)
+module.exports = mongoose.model('example', Example)

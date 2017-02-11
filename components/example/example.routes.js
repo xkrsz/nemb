@@ -1,6 +1,7 @@
 'use strict'
 
-const example = new require('./example')()
+const Example = require('./example')
+const example = new Example()
 const router = require('express').Router()
 
 router.route('/status')

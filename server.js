@@ -17,7 +17,7 @@ app.use(bodyParser.json())
 
 
 // Routes
-app.use('/', require('./components/example/example.routes.js').default)
+app.use('/', require('./components/example/example.routes.js'))
 
 
 server.listen(port, () => {
