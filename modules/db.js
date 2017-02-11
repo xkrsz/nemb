@@ -1,6 +1,7 @@
-import mongoose from 'mongoose'
+'use strict'
 
-import log from './logger'
+const mongoose = require('mongoose')
+const log = require('./logger')
 
 const mongouri = process.env.MONGOURI || 'mongodb://localhost/example'
 mongoose.connect(mongouri)
@@ -13,6 +14,4 @@ db.once('open', () => {
 })
 
 // Models
-global.ExampleM = require('../models/example')
-
-export default 'elo'
+global.MExample = require('../models/example')
