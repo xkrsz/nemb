@@ -4,8 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "prestart": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\" > /dev/null; mongod --dbpath db --fork --logpath logs/db.log",
+    "start": "node server.js",
+    "poststop": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\" > /dev/null",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
