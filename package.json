@@ -8,7 +8,7 @@
     "start": "./node_modules/.bin/nodemon server.js",
     "poststop": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\" > /dev/null", 
     "start-nomongo": "./node_modules/.bin/nodemon server.js",
-    "start-nowatch": "node server.js",
+    "start-nowatch": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\" > /dev/null; mongod --dbpath db --fork --logpath logs/db.log; node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
