@@ -5,8 +5,9 @@
   "main": "server.js",
   "scripts": {
     "prestart": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\" > /dev/null; mongod --dbpath db --fork --logpath logs/db.log",
-    "start": "node server.js",
-    "poststop": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\" > /dev/null",
+    "start": "./node_modules/.bin/nodemon server.js",
+    "poststop": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\" > /dev/null", 
+    "start-nomongo": "./node_modules/.bin/nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,5 +22,8 @@
     "express": "^4.14.0",
     "mongoose": "^4.6.7",
     "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }

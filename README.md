@@ -23,5 +23,5 @@ This projects contains everything you need to jump start your backend.
 
 To do:
 - [ ] document boilerplate thouroughly
-- [ ] create a start command which starts everything
+- [x] create a start command which starts everything
 - [ ] optional command to run without mongo (in case someone has it running already)
