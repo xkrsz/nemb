@@ -1,23 +1,30 @@
 {
-  "name": "node-template",
+  "name": "nemb",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "prestart": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\" > /dev/null; mongod --dbpath db --fork --logpath logs/db.log",
+    "start": "./node_modules/.bin/nodemon server.js",
+    "poststop": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\" > /dev/null", 
+    "start-nomongo": "./node_modules/.bin/nodemon server.js",
+    "start-nowatch": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\" > /dev/null; mongod --dbpath db --fork --logpath logs/db.log; node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:krszwsk/node-template"
+    "url": "git@github.com:krszwsk/nemb"
   },
   "author": "Krzysztof Kraszewski <krszwsk@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
     "express": "^4.14.0",
     "mongoose": "^4.6.7",
     "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
