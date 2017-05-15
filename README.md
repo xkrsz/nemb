@@ -3,6 +3,14 @@ Node + Express + Mongoose boilerplate
 
 This projects contains everything you need to jump start your backend.
 
+## Libraries:
+- `body-parser`: Used to parse www-urlencoded format (data from html forms for example) and JSON.
+- `cors`: Self-explanatory.
+- `express`: Web framework.
+- `mongoose`: MongoDB object modeling. Makes using MongoDB much easier.
+- `winston`: Used for logging things.
+- `nodemon`: Runs project and restarts when changes are made.
+
 ## Project structure
 ```
 |____.gitignore
