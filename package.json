@@ -1,5 +1,5 @@
 {
-  "name": "node-template",
+  "name": "nemb",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -13,10 +13,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:krszwsk/node-template"
+    "url": "git@github.com:krszwsk/nemb"
   },
   "author": "Krzysztof Kraszewski <krszwsk@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
