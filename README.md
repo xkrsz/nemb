@@ -51,3 +51,4 @@ To run **nemb**, just clone or download this repository, `cd` into it, execute `
 - [ ] document boilerplate thoroughly
 - [x] create a start command which starts everything
 - [x] optional command to run without mongo (in case someone has it running already)
+- [x] move to TypeScript
