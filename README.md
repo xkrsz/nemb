@@ -22,18 +22,22 @@ To run **nemb**, just clone or download this repository, `cd` into it, execute `
 ## Project structure
 ```
 |____.gitignore
-|____components
-| |____example
+|____build
+|____db
+|____logs
+|____src
+| |____components
+| | |____example
+| | | |____example.js
+| | | |____example.routes.js
+| |____models
 | | |____example.js
-| | |____example.routes.js
-|____models
-| |____example.js
-|____modules
-| |____db.js
-| |____logger.js
+| |____modules
+| | |____db.js
+| | |____logger.js
+| |____server.js
 |____package.json
 |____README.md
-|____server.js
 
 ```
 
