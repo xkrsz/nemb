@@ -11,7 +11,6 @@ const log = require('./modules/logger')
 
 const port = process.env.PORT || 3000
 
-
 // Express config
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())

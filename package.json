@@ -5,11 +5,12 @@
   "main": "server.js",
   "scripts": {
     "prestart": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\" > /dev/null; mongod --dbpath db --fork --logpath logs/db.log",
-    "start": "./node_modules/.bin/nodemon server.js",
-    "poststop": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\" > /dev/null", 
-    "start-nomongo": "./node_modules/.bin/nodemon server.js",
-    "start-nowatch": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\" > /dev/null; mongod --dbpath db --fork --logpath logs/db.log; node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "./node_modules/.bin/tsc -w | ./node_modules/.bin/nodemon --watch build build/server.js",
+    "poststop": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\" > /dev/null",
+    "start-nomongo": "./node_modules/.bin/tsc -w | ./node_modules/.bin/nodemon --watch build build/server.js",
+    "start-nowatch": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\" > /dev/null; mongod --dbpath db --fork --logpath logs/db.log; tsc; node build/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/tsc"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
     "winston": "^2.3.1"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "typescript": "^2.3.4"
   }
 }
