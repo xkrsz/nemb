@@ -1,27 +1,61 @@
 import * as express from 'express';
-const app = express();
-import * as http from 'http';
-const server = http.Server(app);
-import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
+import DB from './components/DB';
+import IndexRoute from "./routes/IndexRoute";
 
-import './modules/db';
-import log from './modules/logger';
+export class Server {
 
+  public app: express.Application;
 
-const port = process.env.PORT || 3000;
+  public static bootstrap(): Server {
+    return new Server();
+  }
 
-// Express config
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-app.use(cors());
+  constructor() {
+    new DB().connect();
+    this.app = express();
+    this.config();
+    this.routes();
+    this.api();
+  }
 
+  /**
+   * Configure application
+   *
+   * @class Server
+   * @method config
+   */
+  public config() {
+    this.app.use(cors());
 
-// Routes
-import exampleRoutes from './components/example/example.routes';
-app.use('/', exampleRoutes);
+    this.app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+      err.status = 404;
+      next(err);
+    });
+  }
 
+  /**
+   * Create API routes
+   *
+   * @class Server
+   * @method api
+   */
+  public api() {
+    let router: express.Router;
+    router = express.Router();
 
-server.listen(port, () => {
-  log.info(`App running on localhost:${port}`);
-});
+    IndexRoute.create(router);
+
+    this.app.use(router);
+  }
+
+  /**
+   * Initialise router
+   *
+   * @class Server
+   * @method routes
+   */
+  public routes() {
+
+  }
+}
