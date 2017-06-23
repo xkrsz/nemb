@@ -9,7 +9,7 @@
     "stop": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\" > /dev/null",
     "start-nomongo": "./node_modules/.bin/tsc -w | ./node_modules/.bin/nodemon --watch build bin/www",
     "start-nowatch": "mongo --eval \"db.getSiblingDB('admin').shutdownServer()\" > /dev/null; mongod --dbpath db --fork --logpath logs/db.log; tsc; ./bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run build; mocha build/tests",
     "build": "./node_modules/.bin/tsc"
   },
   "repository": {
@@ -26,10 +26,15 @@
     "winston": "^2.3.1"
   },
   "devDependencies": {
+    "@types/chai": "^4.0.1",
     "@types/cors": "^2.8.1",
     "@types/express": "^4.0.35",
+    "@types/mocha": "^2.2.41",
     "@types/node": "^7.0.27",
     "@types/winston": "^2.3.3",
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2",
+    "mocha-typescript": "^1.1.5",
     "nodemon": "^1.11.0",
     "typescript": "^2.3.4"
   }
